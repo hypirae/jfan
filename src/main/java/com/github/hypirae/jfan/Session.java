@@ -1,7 +1,8 @@
-package com.github.hypirae;
+package com.github.hypirae.jfan;
 
 public class Session {
-    private String sessionName;
+
+    private final String sessionName;
 
     public static class Builder {
         private String sessionName;
@@ -20,4 +21,6 @@ public class Session {
     private Session(String name) {
         sessionName = name;
     }
+
+    public String getSessionName() { return sessionName; }
 }
