@@ -20,10 +20,10 @@ public class Actions {
   public void addAction(ActionCategory cat, Pair<String, Action> action)
       throws EnumConstantNotPresentException {
     switch (cat) {
-      case ActionCategory.GET -> get.put(action.x(), action.y());
-      case ActionCategory.EDIT -> edit.put(action.x(), action.y());
-      case ActionCategory.DELETE -> delete.put(action.x(), action.y());
-      case ActionCategory.USER -> user.put(action.x(), action.y());
+      case GET -> get.put(action.x(), action.y());
+      case EDIT -> edit.put(action.x(), action.y());
+      case DELETE -> delete.put(action.x(), action.y());
+      case USER -> user.put(action.x(), action.y());
       default -> throw new EnumConstantNotPresentException(ActionCategory.class, cat.toString());
     }
   }
@@ -33,10 +33,10 @@ public class Actions {
     Map<String, Action> actionCategory;
 
     switch (cat) {
-      case ActionCategory.GET -> actionCategory = get;
-      case ActionCategory.EDIT -> actionCategory = edit;
-      case ActionCategory.DELETE -> actionCategory = delete;
-      case ActionCategory.USER -> actionCategory = user;
+      case GET -> actionCategory = get;
+      case EDIT -> actionCategory = edit;
+      case DELETE -> actionCategory = delete;
+      case USER -> actionCategory = user;
       default -> throw new EnumConstantNotPresentException(ActionCategory.class, cat.toString());
     }
 
