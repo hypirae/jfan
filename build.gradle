@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.github.hypirae.jfan'
+group = 'io.github.hypirae.jfan'
 version = '1.0-SNAPSHOT'
 
 repositories {
