@@ -1,5 +1,7 @@
 package io.github.hypirae.jfan;
 
+import io.github.hypirae.jfan.actions.ActionCtx;
+import io.github.hypirae.jfan.actions.actions.testaction.TestActionFactory;
 import java.net.CookieHandler;
 
 public class Bot {
@@ -22,6 +24,12 @@ public class Bot {
     return new User(user.username(), null);
   }
 
+  public ActionCtx getCtx() {
+    return new ActionCtx.Builder()
+        .httpClient(httpClient)
+        .build();
+  }
+
   public static CookieHandler defaultCookieHandler() {
     return new DefaultCookieHandler();
   }
@@ -31,14 +39,15 @@ public class Bot {
   }
 
   static class Builder {
-    private Actions actions;
+    public final Actions actions;
     private User user;
     private JFanHttpClient httpClient;
 
-    public Builder actions(Actions act) {
-      actions = act;
-
-      return this;
+    public Builder() {
+      // register actions
+      // TODO: Find a cleaner way to do this
+      actions = new Actions()
+          .addAction("test-action", new TestActionFactory());
     }
 
     public Builder user(User u) {
