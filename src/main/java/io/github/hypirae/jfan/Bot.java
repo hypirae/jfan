@@ -2,6 +2,7 @@ package io.github.hypirae.jfan;
 
 import io.github.hypirae.jfan.actions.ActionCtx;
 import io.github.hypirae.jfan.actions.actions.testaction.TestActionFactory;
+
 import java.net.CookieHandler;
 
 /**
@@ -80,7 +81,7 @@ public class Bot {
   /**
    * Builder class for constructing a Bot instance.
    */
-  static class Builder {
+  public static class Builder {
 
     /**
      * The actions that the bot can perform.

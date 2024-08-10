@@ -32,6 +32,18 @@ public class DefaultHttpClient implements JFanHttpClient {
   }
 
   /**
+   * Constructs a new DefaultHttpClient instance.
+   *
+   * @param hc the HTTP client to be used
+   * @param ch the cookie handler to be used by the HTTP client
+   * @apiNote This constructor is intended for testing purposes only.
+   */
+  public DefaultHttpClient(HttpClient hc, CookieHandler ch) {
+    httpClient = hc;
+    cookieHandler = ch;
+  }
+
+  /**
    * Builds and returns a new HttpClient instance.
    *
    * @return the constructed HttpClient instance
@@ -57,7 +69,7 @@ public class DefaultHttpClient implements JFanHttpClient {
    */
   public HttpResponse<String> get(URI uri, Query query)
       throws URISyntaxException, IOException, InterruptedException {
-    var strUri = uri.getRawPath() + query.toString();
+    var strUri = uri.toString() + "?" + query.toString();
     var fullUri = new URI(strUri);
     var req = HttpRequest.newBuilder(fullUri).GET().build();
 
